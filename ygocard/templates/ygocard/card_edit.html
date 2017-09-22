@@ -1,0 +1,16 @@
+{% extends 'ygocard/base.html' %}
+
+  {% block content %}
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {{ form_card_rarity.as_p }}
+      {{ form_card_type.as_p }}
+      {{ form_monster_type.as_p }}
+      {{ form_monster_type1.as_p }}
+      {{ form_monster_type2.as_p }}
+      {{ form_monster_ability.as_p }}
+      {{ form_spell_trap.as_p }}
+      <button type="submit" class="save btn btn-success">Save</button>
+    </form>
+  {% endblock %}
