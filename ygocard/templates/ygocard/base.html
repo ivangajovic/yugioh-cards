@@ -16,6 +16,10 @@
         <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
         <link href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
 
+        <!-- LOGIN FORM STYLES -->
+        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen" type="text/css" />
+
         <!-- PAGE LEVEL PLUGIN STYLES -->
         <link href="{% static 'css/animate.css' %}" rel="stylesheet">
         <link href="{% static 'vendor/swiper/css/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
@@ -59,7 +63,13 @@
                             <ul class="navbar-nav navbar-nav-right">
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="/">Home</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">Contact</a></li>
+                                {% if user.is_authenticated %}
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'add_new_card' %}">Add New Card</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">Hi {{ user.username }}</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" title="Log Out" href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'login' %}"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+                                {% endif %}
 
 
 
