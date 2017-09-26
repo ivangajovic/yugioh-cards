@@ -14,7 +14,7 @@
     <h4><a href="/"></a>{{ card.c_title }} &emsp; {% if user.is_authenticated %} <a href="{% url 'card_edit' pk=card.pk %}"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit Card"></i></a>&nbsp;
           <a href="{% url 'card_remove' pk=card.pk %}"><i class="fa fa-times" aria-hidden="true" title="Delete Card"></i></a>{% endif %}<br>
       {% if card.card_type.title == "monster" %}
-        <span class="text-uppercase margin-l-20">{{ card.card_type.title }} / {{ card.monster_type.title }} / {{ card.monster_type_1.title }} / {{ card.monster_type_2.title }} / {{ card.monster_ability.title|default_if_none:"" }}</span></h4>
+        <span class="text-uppercase margin-l-20">{{ card.card_type.title }} / {{ card.monster_type.title|default_if_none:"" }} / {{ card.monster_type_1.title|default_if_none:"" }} / {{ card.monster_type_2.title|default_if_none:"" }} / {{ card.monster_ability.title|default_if_none:"" }}</span></h4>
       {% else %}
         <span class="text-uppercase margin-l-20">{{ card.card_type.title }} / {{ card.spell_trap_type.title }} </span></h4>
       {% endif %}

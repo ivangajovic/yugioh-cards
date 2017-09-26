@@ -66,9 +66,9 @@
                                 {% if user.is_authenticated %}
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'add_new_card' %}">Add New Card</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">Hi {{ user.username }}</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" title="Log Out" href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" title="Log Out" href="{% url 'logout' %}">Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                                 {% else %}
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'login' %}"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'login' %}">Login &nbsp; <i class="fa fa-unlock-alt" aria-hidden="true"></i></a></li>
                                 {% endif %}
 
 

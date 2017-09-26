@@ -5,7 +5,7 @@
      <div class="col-sm-4 sm-margin-b-50">
        <div class="margin-b-20">
          <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-           <img src="{{ card.c_image.url }}" class="img-responsive" >
+           <a href="{% url 'card_detail' pk=card.pk %}"><img src="{{ card.c_image.url }}" class="img-responsive" >
          </div>
        </div>
          <h4><a href="{% url 'card_detail' pk=card.pk %}">{{ card.c_title }}</a> <br><span class="text-uppercase margin-l-20">{{ card.card_type.title }}</span></h4>
