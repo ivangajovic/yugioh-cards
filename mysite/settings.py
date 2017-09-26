@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ygocard',
         'USER': 'ivan',
-        'PASSWORD': '',
+        'PASSWORD': 'ivan',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -129,13 +129,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
-
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
