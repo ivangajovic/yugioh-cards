@@ -25,7 +25,7 @@ SECRET_KEY = 'yrf!$1-yf3_=rn!3m$#*xif$$$0dz^c@9j=@5)_@9t(*rv+00&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'ygoclc.herokuapp.com']
 
 
 # Application definition
