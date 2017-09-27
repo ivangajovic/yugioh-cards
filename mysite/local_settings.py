@@ -6,9 +6,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'yugiohcards',
         'USER': 'ivan',
-        'PASSWORD': '',
+        'PASSWORD': 'ivan',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
