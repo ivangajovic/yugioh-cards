@@ -20,10 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yrf!$1-yf3_=rn!3m$#*xif$$$0dz^c@9j=@5)_@9t(*rv+00&'
+# SECRET_KEY = 'yrf!$1-yf3_=rn!3m$#*xif$$$0dz^c@9j=@5)_@9t(*rv+00&'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'yrf!$1-yf3_=rn!3m$#*xif$$$0dz^c@9j=@5)_@9t(*rv+00&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['127.0.0.1', 'ygoclc.herokuapp.com']
 
@@ -80,7 +82,7 @@ DATABASES = {
         'NAME': 'yugiohcards',
         'USER': 'ivan',
         'PASSWORD': '',
-        'HOST': 'LOCAL',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
@@ -129,15 +131,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
-
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['*']
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
