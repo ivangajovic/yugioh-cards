@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 from .models import Card, CardType, MonsterType, MonsterType1, MonsterType2, MonsterAbility, SpellTrapType, CardRarity
 from .forms import CardForm, CardTypeForm, MonsterTypeForm, MonsterType1Form, MonsterType2Form, MonsterAbilityForm, SpellTrapTypeForm, CardRarityForm
@@ -104,3 +106,18 @@ def card_remove(request, pk):
     card = get_object_or_404(Card, pk=pk)
     card.delete()
     return redirect('card_list')
+
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            redirect('card_list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
