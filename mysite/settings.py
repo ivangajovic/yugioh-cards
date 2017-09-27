@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'yugiohcards',
         'USER': 'ivan',
-        'PASSWORD': 'ivan',
-        'HOST': 'localhost',
+        'PASSWORD': '',
+        'HOST': 'LOCAL',
         'PORT': '',
     }
 }
